@@ -16,17 +16,12 @@ def fetch(s):
 __pragma__("noskip")
 
 
-class AlbumList(Component):
-    def __init__(self, props):
-        super().__init__(props)
-        self.state = {"albums": []}
-
-    def render(self, props):
-        return __pragma__(
-            "js",
-            "{}",
-            """ (
-                <Text>asd</Text>
+def AlbumList(props):
+    return __pragma__(
+        "js",
+        "{}",
+        """ (
+                <Text>AlbumList</Text>
 
         ); """,
-        )
+    )

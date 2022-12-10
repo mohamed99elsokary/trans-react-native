@@ -1,15 +1,20 @@
 from Component_py.stubs import require, __pragma__  # __:skip
+
 React = require("react")
 View = require("react-native").View
 
 
 def Card(props):
-    container_style, = styles.values()
-    return __pragma__("js", "{}", """ (
+    (container_style,) = styles.values()
+    return __pragma__(
+        "js",
+        "{}",
+        """ (
         <View style={container_style}>
             {props.children}
         </View>
-    ); """)
+    ); """,
+    )
 
 
 styles = {
@@ -25,6 +30,6 @@ styles = {
         "elevation": 1,
         "marginLeft": 5,
         "marginRight": 5,
-        "marginTop": 10
+        "marginTop": 10,
     }
 }

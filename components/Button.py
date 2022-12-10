@@ -1,13 +1,16 @@
 from Component_py.stubs import require, __pragma__  # __:skip
 from Component_py.component import destruct
+
 React = require("react")
-Text, TouchableOpacity = \
-    destruct(require("react-native"), "Text", "TouchableOpacity")
+Text, TouchableOpacity = destruct(require("react-native"), "Text", "TouchableOpacity")
 
 
 def Button(props):
     button_style, text_style = styles.values()
-    return __pragma__("js", "{}", """ (
+    return __pragma__(
+        "js",
+        "{}",
+        """ (
         <TouchableOpacity
             style={button_style}
             onPress={props.onPress}>
@@ -15,7 +18,8 @@ def Button(props):
                 {props.children}
             </Text>
         </TouchableOpacity>
-    ); """)
+    ); """,
+    )
 
 
 styles = {
@@ -27,7 +31,7 @@ styles = {
         "borderWidth": 1,
         "borderColor": "#007AFF",
         "marginLeft": 5,
-        "marginRight": 5
+        "marginRight": 5,
     },
     "textStyle": {
         "alignSelf": "center",
@@ -35,6 +39,6 @@ styles = {
         "fontSize": 16,
         "fontWeight": "600",
         "paddingTop": 10,
-        "paddingBottom": 10
-    }
+        "paddingBottom": 10,
+    },
 }

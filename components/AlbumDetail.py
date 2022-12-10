@@ -5,23 +5,30 @@ from components.CardSection import CardSection
 from components.Button import Button
 
 React = require("react")
-View, Text, Image, Linking = \
-    destruct(require("react-native"), "View", "Text", "Image", "Linking")
+View, Text, Image, Linking = destruct(
+    require("react-native"), "View", "Text", "Image", "Linking"
+)
 
 
 def AlbumDetail(props):
-    artist, image, thumbnail_image, title, url = \
-        destruct(props.album,
-                 "artist", "image", "thumbnail_image", "title", "url")
-    (header_content_style,
-     header_text_style,
-     thumbnail_style,
-     thumbnail_container_style,
-     image_style) = styles.values()
+    artist, image, thumbnail_image, title, url = destruct(
+        props.album, "artist", "image", "thumbnail_image", "title", "url"
+    )
+    (
+        header_content_style,
+        header_text_style,
+        thumbnail_style,
+        thumbnail_container_style,
+        image_style,
+    ) = styles.values()
 
-    def on_press(): return Linking.openURL(url)
+    def on_press():
+        return Linking.openURL(url)
 
-    return __pragma__("js", "{}", """ (
+    return __pragma__(
+        "js",
+        "{}",
+        """ (
         <Card>
             <CardSection>
                 <View style={thumbnail_container_style}>
@@ -49,30 +56,19 @@ def AlbumDetail(props):
                 </Button>
             </CardSection>
         </Card>
-    ); """)
+    ); """,
+    )
 
 
 styles = {
-    "headerContentStyle": {
-        "flexDirection": "column",
-        "justifyContent": "space-around"
-    },
-    "headerTextStyle": {
-        "fontSize": 18
-    },
-    "thumbnailStyle": {
-        "height": 50,
-        "width": 50
-    },
+    "headerContentStyle": {"flexDirection": "column", "justifyContent": "space-around"},
+    "headerTextStyle": {"fontSize": 18},
+    "thumbnailStyle": {"height": 50, "width": 50},
     "thumbnailContainerStyle": {
         "justifyContent": "center",
         "alignItems": "center",
         "marginLeft": 10,
-        "marginRight": 10
+        "marginRight": 10,
     },
-    "imageStyle": {
-        "height": 300,
-        "flex": 1,
-        "width": None
-    }
+    "imageStyle": {"height": 300, "flex": 1, "width": None},
 }
