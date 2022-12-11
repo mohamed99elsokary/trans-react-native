@@ -1,12 +1,9 @@
-from core.stubs import require, console, __pragma__, iii  # __:skip
-from components.AlbumDetail import AlbumDetail
-from components.core_functions import request
+from core.stubs import require, __pragma__  # __:skip
+from components.core_functions import requests
 
 React = require("react")
 ScrollView = require("react-native").ScrollView
 Text = require("react-native").Text
-__pragma__("skip")
-__pragma__("noskip")
 
 
 def AlbumList(props):
@@ -16,24 +13,8 @@ def AlbumList(props):
         "headers": {},
         "data": {},
     }
-    data, setData = React.useState()
+    data = requests(request_data)
 
-    def parse(request):
-        setData(request.data)
-        print("_______________")
-
-    def hamda():
-        request(request_data).then(parse)
-
-    __pragma__(
-        "js",
-        "{}",
-        """ (
-    React.useEffect(() => {
-		hamda()
-	}, [])
-            ); """,
-    )
     return __pragma__(
         "js",
         "{}",
