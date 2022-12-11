@@ -1,0 +1,7 @@
+- Main
+    - Home
+        - event list
+        - event details
+    - Auth
+        - register 
+        - login 
