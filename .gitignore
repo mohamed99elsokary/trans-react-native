@@ -19,3 +19,4 @@ yarn-error.log*
 # transcrypt
 __target__/
 .mypy_cache/
+/env
