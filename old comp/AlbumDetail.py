@@ -1,5 +1,5 @@
-from Component_py.stubs import require, console, __pragma__  # __:skip
-from Component_py.component import destruct
+from core.stubs import require, console, __pragma__  # __:skip
+from core.component import destruct
 from components.Card import Card
 from components.CardSection import CardSection
 from components.Button import Button

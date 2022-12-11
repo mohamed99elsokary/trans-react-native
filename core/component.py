@@ -1,6 +1,8 @@
 from typing import Dict, Any, Callable
-from Component_py.stubs import require  # __:skip
+from core.stubs import require  # __:skip
+
 React = require("react")
+
 
 class Component:
     isReactComponent: Dict[str, Any] = {}
@@ -21,10 +23,12 @@ class Component:
     def state(self, initial_state: Dict[str, Any]) -> None:
         self.component.state = initial_state
 
+
 class PureComponent(Component):
     def __init__(self, props: Dict[str, Any], context, updater) -> None:
         self.component = __new__(React.PureComponent(props, context, updater))
         self.setState = self.component.setState.bind(self)
+
 
 def destruct(dict_, *names):
     return [dict_[name] for name in names]

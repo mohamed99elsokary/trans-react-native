@@ -1,5 +1,5 @@
-from Component_py.stubs import require, __pragma__  # __:skip
-from Component_py.component import destruct
+from core.stubs import require, __pragma__  # __:skip
+from core.component import destruct
 
 React = require("react")
 Text, TouchableOpacity = destruct(require("react-native"), "Text", "TouchableOpacity")

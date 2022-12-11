@@ -1,4 +1,4 @@
-from Component_py.stubs import require, __pragma__  # __:skip
+from core.stubs import require, __pragma__  # __:skip
 
 React = require("react")
 View = require("react-native").View
