@@ -1,4 +1,4 @@
-from core.stubs import require, console, __pragma__, iii  # __:skip
+from core.stubs import require, __pragma__  # __:skip
 
 axios = require("axios")
 
