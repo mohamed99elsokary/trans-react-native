@@ -1,37 +1,18 @@
-__pragma__("skip")
-from core.stubs import require, __pragma__
-
-__pragma__("noskip")
+from core.stubs import require, __pragma__  # __:skip
 
 React = require("react")
 axios = require("axios")
 
 
-def requests(values):
-    response, setData = React.useState()
-    request_body = values
-
-    def request():
-
-        __pragma__(
-            "js",
-            "{}",
-            """ 
-            return axios.default.request(request_body);
-            """,
-        )
-
-    def parse(request):
-        setData(request.data)
-        print("_______________")
-
+def requests(request_body):
     __pragma__(
         "js",
-        "{}",
-        """ (
-    React.useEffect(() => {
-		request(request_body).then(parse)
-	}, [])
-            ); """,
+        {},
+        """
+const [response, setData] = React.useState()
+React.useEffect(() => {
+    axios.default.request(request_body).then(setData)
+}, [])
+return response?.data
+    """,
     )
-    return response
