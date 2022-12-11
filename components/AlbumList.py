@@ -7,18 +7,18 @@ Text = require("react-native").Text
 
 
 def AlbumList(props):
-    request_data = {
-        "method": "GET",
-        "url": "https://grey-labs-staging.bit68.com/en/api/products/",
-        "headers": {},
-        "data": {},
-    }
-    data = requests(request_data)
-
+    response = requests(
+        {
+            "method": "GET",
+            "url": "https://grey-labs-staging.bit68.com/en/api/products/",
+            "headers": {},
+            "data": {},
+        }
+    )
     return __pragma__(
         "js",
         "{}",
         """ (
-                <Text>{data?.count}</Text>
+                <Text>{response?.results?.[0]?.id}</Text>
         ); """,
     )
