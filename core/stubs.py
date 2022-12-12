@@ -33,3 +33,16 @@ class Object:
 
 window = console = module = None
 __pragma__("noskip")
+
+
+def validate(form_keys, form_dict):
+    missing = []
+    for key in form_keys:
+        exist = form_dict.get(key)
+        if not exist:
+            missing.append(key)
+    return missing
+
+
+def handleChange(values, value, attr):
+    values[attr] = value
