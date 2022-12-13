@@ -3,9 +3,7 @@ from js_libs.navigation import Stack, NavigationContainer
 from native.screens.Auth.login import Login
 from native.screens.Auth.sign_up import Register
 from js_libs.react import React
-from js_libs.react_native import react_native
-
-View = react_native.View
+from js_libs.react_native import react_native, View
 
 
 def App():

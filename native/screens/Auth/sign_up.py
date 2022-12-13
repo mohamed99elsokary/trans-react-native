@@ -1,13 +1,17 @@
 from js_libs.stubs import require, __pragma__  # __:skip
 from js_libs.stubs import handleChange, validate
+from js_libs.react import React, useState
 
-React = require("react")
-useState = require("react").useState
-
-Text = require("react-native").Text
-View = require("react-native").View
-TextInput = require("react-native").TextInput
-TouchableOpacity = require("react-native").TouchableOpacity
+from js_libs.react_native import (
+    react_native,
+    View,
+    TextInput,
+    Text,
+    Image,
+    StyleSheet,
+    TouchableOpacity,
+    ScrollView,
+)
 
 
 def Register(props):

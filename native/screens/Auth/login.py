@@ -1,17 +1,18 @@
 from js_libs.stubs import require, __pragma__  # __:skip
 from js_libs.stubs import handleChange, validate
+from js_libs.react import React, useState
+from js_libs.react_native import (
+    react_native,
+    View,
+    TextInput,
+    Text,
+    Image,
+    StyleSheet,
+    TouchableOpacity,
+    ScrollView,
+)
 
-React = require("react")
-useState = require("react").useState
 Formik = require("formik")
-
-TextInput = require("react-native").TextInput
-Text = require("react-native").Text
-View = require("react-native").View
-Image = require("react-native").Image
-StyleSheet = require("react-native").StyleSheet
-TouchableOpacity = require("react-native").TouchableOpacity
-ScrollView = require("react-native").ScrollView
 
 
 def Login(props):
