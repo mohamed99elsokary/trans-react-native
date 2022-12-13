@@ -1,10 +1,11 @@
-from js_libs.stubs import require, __pragma__, module  # __:skip
+from js_libs.stubs import __pragma__, module  # __:skip
 from js_libs.navigation import Stack, NavigationContainer
 from native.screens.Auth.login import Login
 from native.screens.Auth.sign_up import Register
+from js_libs.react import React
+from js_libs.react_native import react_native
 
-React = require("react")
-View = require("react-native").View
+View = react_native.View
 
 
 def App():
