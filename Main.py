@@ -1,5 +1,5 @@
-from core.stubs import require, __pragma__, module  # __:skip
-from core.navigation import Stack, NavigationContainer
+from js_libs.stubs import require, __pragma__, module  # __:skip
+from js_libs.navigation import Stack, NavigationContainer
 from native.screens.Auth.login import Login
 from native.screens.Auth.sign_up import Register
 

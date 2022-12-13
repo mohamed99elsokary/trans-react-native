@@ -1,5 +1,5 @@
-from core.stubs import require, console, __pragma__  # __:skip
-from core.component import destruct
+from js_libs.stubs import require, console, __pragma__  # __:skip
+from js_libs.component import destruct
 from components.Card import Card
 from components.CardSection import CardSection
 from components.Button import Button

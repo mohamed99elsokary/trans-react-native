@@ -1,5 +1,5 @@
-from core.stubs import require, __pragma__  # __:skip
-from core.requests import requests
+from js_libs.stubs import require, __pragma__  # __:skip
+from js_libs.requests import requests
 
 React = require("react")
 ScrollView = require("react-native").ScrollView

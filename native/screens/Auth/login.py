@@ -1,5 +1,5 @@
-from core.stubs import require, __pragma__  # __:skip
-from core.stubs import handleChange, validate
+from js_libs.stubs import require, __pragma__  # __:skip
+from js_libs.stubs import handleChange, validate
 
 React = require("react")
 useState = require("react").useState

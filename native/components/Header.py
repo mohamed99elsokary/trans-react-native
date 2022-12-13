@@ -1,5 +1,5 @@
-from core.stubs import require, __pragma__  # __:skip
-from core.component import destruct
+from js_libs.stubs import require, __pragma__  # __:skip
+from js_libs.component import destruct
 
 React = require("react")
 Text, View = destruct(require("react-native"), "Text", "View")
