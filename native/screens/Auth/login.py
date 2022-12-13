@@ -3,11 +3,15 @@ from core.stubs import handleChange, validate
 
 React = require("react")
 useState = require("react").useState
+Formik = require("formik")
 
+TextInput = require("react-native").TextInput
 Text = require("react-native").Text
 View = require("react-native").View
-TextInput = require("react-native").TextInput
+Image = require("react-native").Image
+StyleSheet = require("react-native").StyleSheet
 TouchableOpacity = require("react-native").TouchableOpacity
+ScrollView = require("react-native").ScrollView
 
 
 def Login(props):
@@ -16,6 +20,9 @@ def Login(props):
 
     def action(missing):
         print(missing)
+
+    def handelLogin(form):
+        props.navigation.navigate("register")
 
     def handleSubmit(form_dict):
         missing = validate(
@@ -34,122 +41,137 @@ def Login(props):
     return __pragma__(
         "js",
         "{}",
-        """ (
-<View style={styles.viewStyle}>
-<View style={styles.nameViewStyle}>
+        """ (		<ScrollView style={styles.container}>
+			<Image
+				style={styles.Logo}
+				source={require("../native/assets/Khusm.png")}
+			/>
 
-<TextInput
-placeholder="First Name"
-style={styles.nameStyle}
-onChangeText={(x) => handleChange( form_dict,x ,"firstname")}
-/>
-{missing.includes("firstname") && <Text>This field is required</Text>}
+			<Text
+				style={{
+					fontSize: 22,
+					fontWeight: "bold",
+					color: "#000000",
+					alignSelf: "center",
+					marginBottom: 20,
+				}}
+			>
+				POS
+			</Text>
 
-<TextInput
-placeholder="Last Name"
-style={styles.nameStyle}
-onChangeText={(x) => handleChange( form_dict,x ,"lastname")}
-/>
-</View>
+			<View style={styles.formik}>
+				<Text style={{ fontSize: 14, fontWeight: "bold", color: "#2caca4" }}>
+					Phone
+				</Text>
+				<TextInput
+					keyboardType="numeric"
+					style={styles.input}
+					// value={values.phone}
+					// onChangeText={handleChange("phone")}
+					// onBlur={() => setFieldTouched("phone")}
+					placeholder="Phone"
+					placeholderTextColor="#2caca4"
+				/>
+				{/* {touched.phone && errors.phone && (
+					<Text style={styles.erorrText}>{errors.phone}</Text>
+				)} */}
 
-<TextInput
-placeholder="Email"
-keyboardType="email-address"
-style={styles.inputStyles}
-onChangeText={(x) => handleChange( form_dict,x ,"email")}
-/>
+				<Text
+					style={{
+						fontSize: 14,
+						fontWeight: "bold",
+						color: "#2caca4",
+						marginTop: 30,
+					}}
+				>
+					Password
+				</Text>
+				<TextInput
+					style={styles.input}
+					// value={values.password}
+					// onChangeText={handleChange("password")}
+					// onBlur={() => setFieldTouched("password")}
+					placeholder="Password"
+					secureTextEntry={true}
+					placeholderTextColor="#2caca4"
+				/>
 
-<TextInput
-placeholder="Password"
-secureTextEntry={true}
-style={styles.inputStyles}
-onChangeText={(x) => handleChange( form_dict,x ,"password")}
+				
 
-/>
+				{/* Login  button */}
 
-<TextInput
-placeholder="Date of birth"
-style={styles.inputStyles}
-onChangeText={(x) => handleChange( form_dict,x ,"date")}
-
-/>
-
-<TouchableOpacity
-style={styles.buttonstyle}
-onPress={()=>handleSubmit(form_dict)}
->
-<Text
-style={styles.buttonTextStyle}
->
-Sign Up
-</Text>
-</TouchableOpacity>
-</View>
-
-    ); """,
+				<TouchableOpacity onPress={handelLogin} style={styles.button}>
+					<Text style={styles.buttonText}> LOGIN </Text>
+				</TouchableOpacity>
+			</View>
+		</ScrollView>)""",
     )
 
 
 styles = {
-    "homeStyle": {
-        "height": "auto",
-        "flex": 1,
+    "container": {
+        "backgroundColor": "white",
     },
-    "textStyle": {
-        "color": "white",
-    },
-    "buttonTextStyle": {
-        "color": "white",
+    "Logo": {
         "alignSelf": "center",
-        "fontSize": 25,
+        "flex": 1,
+        "width": 280,
+        "height": 200,
+        "marginTop": 50,
+        "resizeMode": "contain",
     },
-    "signUpStyle": {
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "alignItems": "center",
-        "marginBottom": 100,
+    "formik": {
+        "paddingStart": 25,
+        "paddingEnd": 25,
+    },
+    "input": {
+        "borderWidth": 1,
+        "borderColor": "#2caca4",
+        "borderRadius": 6,
+        "padding": 10,
         "marginTop": 15,
     },
-    "textSignStyle": {
-        "color": "#875C5C",
+    "erorrText": {
+        "fontSize": 12,
     },
-    "inputStyles": {
-        "backgroundColor": "#FFF",
-        "width": "85%",
-        "padding": 20,
-        "marginVertical": 7,
-        "borderRadius": 10,
-        "color": "#8D8D8D",
-    },
-    "viewStyle": {
-        "alignItems": "center",
-        "marginTop": "20%",
-    },
-    "nameViewStyle": {
-        "width": "85%",
-        "flexDirection": "row",
-        "justifyContent": "space-between",
-    },
-    "nameStyle": {
-        "width": "48%",
-        "backgroundColor": "#FFF",
-        "padding": 20,
-        "marginVertical": 7,
-        "borderRadius": 10,
-        "color": "#8D8D8D",
-    },
-    "buttonstyle": {
-        "color": "white",
-        "alignSelf": "center",
-        "justifyContent": "center",
-        "width": "85%",
-        "height": 50,
-        "backgroundColor": "#ED6623",
-        "borderRadius": 10,
+    "button": {
+        "backgroundColor": "#2caca4",
+        "borderRadius": 6,
+        "padding": 15,
         "marginTop": 50,
+        "zIndex": 1000,
     },
-    "pickerSelect": {
-        "borderColor": "red",
-        "borderWidth": 2,
+    "buttonText": {
+        "textAlign": "center",
+        "color": "white",
+        "fontSize": 15,
+        "fontWeight": "bold",
+    },
+    "forgetPassword": {
+        "marginTop": 2,
+        "textDecorationLine": "underline",
+    },
+    "SignUpParent": {
+        "marginTop": 5,
+        "flex": 1,
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "center",
+    },
+    "SignUpText": {
+        "display": "flex",
+    },
+    "SignUp": {
+        "textDecorationLine": "underline",
+    },
+    "or": {
+        "marginTop": 7,
+        "fontSize": 16,
+        "textAlign": "center",
+    },
+    "skip": {
+        "marginTop": 10,
+        "fontSize": 16,
+        "textAlign": "center",
     },
 }
