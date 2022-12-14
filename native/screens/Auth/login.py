@@ -11,55 +11,56 @@ from js_libs.react_native import (
     TouchableOpacity,
     ScrollView,
 )
+from native.styles.login import styles
 
 Formik = require("formik")
 
 
 def Login(props):
-    form_dict = {}
-    missing, set_missing = useState([])
-
-    def action(missing):
-        print(missing)
-
     def handelLogin(form):
         props.navigation.navigate("register")
 
-    def handleSubmit(form_dict):
-        missing = validate(
-            [
-                "firstname",
-                "lastname",
-                "email",
-                "password",
-                "date",
-            ],
-            form_dict,
-        )
-        set_missing(missing)
-        action(missing)
+    def image():
+        persons = [
+            {"id": 1, "name": "POS", "show": False},
+            # {"id": 2, "name": "Khusm", "show": True},
+        ]
+        result = []
+        keyyy = 0
+        for person in persons:
+            keyyy += 1
+            person_name = person["name"]
+            if person["show"] == False:
+                style = styles["mahmoud"]
+
+            if person["show"] == True:
+                style = styles["sokary"]
+
+            result.append(
+                __pragma__(
+                    "js",
+                    "{}",
+                    """(
+                    <Text
+                        key = {keyyy}
+                        style={style}
+                    >
+                        {person_name}
+                    </Text>
+                    )""",
+                )
+            )
+        return result
 
     return __pragma__(
         "js",
         "{}",
         """ (		<ScrollView style={styles.container}>
-			<Image
+        <Image
 				style={styles.Logo}
 				source={require("../native/assets/Khusm.png")}
 			/>
-
-			<Text
-				style={{
-					fontSize: 22,
-					fontWeight: "bold",
-					color: "#000000",
-					alignSelf: "center",
-					marginBottom: 20,
-				}}
-			>
-				POS
-			</Text>
-
+			 { image() }
 			<View style={styles.formik}>
 				<Text style={{ fontSize: 14, fontWeight: "bold", color: "#2caca4" }}>
 					Phone
@@ -96,9 +97,6 @@ def Login(props):
 					secureTextEntry={true}
 					placeholderTextColor="#2caca4"
 				/>
-
-				
-
 				{/* Login  button */}
 
 				<TouchableOpacity onPress={handelLogin} style={styles.button}>
@@ -107,72 +105,3 @@ def Login(props):
 			</View>
 		</ScrollView>)""",
     )
-
-
-styles = {
-    "container": {
-        "backgroundColor": "white",
-    },
-    "Logo": {
-        "alignSelf": "center",
-        "flex": 1,
-        "width": 280,
-        "height": 200,
-        "marginTop": 50,
-        "resizeMode": "contain",
-    },
-    "formik": {
-        "paddingStart": 25,
-        "paddingEnd": 25,
-    },
-    "input": {
-        "borderWidth": 1,
-        "borderColor": "#2caca4",
-        "borderRadius": 6,
-        "padding": 10,
-        "marginTop": 15,
-    },
-    "erorrText": {
-        "fontSize": 12,
-    },
-    "button": {
-        "backgroundColor": "#2caca4",
-        "borderRadius": 6,
-        "padding": 15,
-        "marginTop": 50,
-        "zIndex": 1000,
-    },
-    "buttonText": {
-        "textAlign": "center",
-        "color": "white",
-        "fontSize": 15,
-        "fontWeight": "bold",
-    },
-    "forgetPassword": {
-        "marginTop": 2,
-        "textDecorationLine": "underline",
-    },
-    "SignUpParent": {
-        "marginTop": 5,
-        "flex": 1,
-        "display": "flex",
-        "flexDirection": "row",
-        "justifyContent": "center",
-    },
-    "SignUpText": {
-        "display": "flex",
-    },
-    "SignUp": {
-        "textDecorationLine": "underline",
-    },
-    "or": {
-        "marginTop": 7,
-        "fontSize": 16,
-        "textAlign": "center",
-    },
-    "skip": {
-        "marginTop": 10,
-        "fontSize": 16,
-        "textAlign": "center",
-    },
-}
