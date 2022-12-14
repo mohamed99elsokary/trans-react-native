@@ -11,7 +11,7 @@ from js_libs.react_native import (
     TouchableOpacity,
     ScrollView,
 )
-from native.styles.login import styles
+from project.styles.login import styles
 
 Formik = require("formik")
 
@@ -23,7 +23,7 @@ def Login(props):
     def image():
         persons = [
             {"id": 1, "name": "POS", "show": False},
-            # {"id": 2, "name": "Khusm", "show": True},
+            {"id": 2, "name": "Khusm", "show": True},
         ]
         result = []
         keyyy = 0
@@ -58,7 +58,7 @@ def Login(props):
         """ (		<ScrollView style={styles.container}>
         <Image
 				style={styles.Logo}
-				source={require("../native/assets/Khusm.png")}
+				source={require("../project/assets/Khusm.png")}
 			/>
 			 { image() }
 			<View style={styles.formik}>
