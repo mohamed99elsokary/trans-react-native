@@ -12,7 +12,7 @@ from warpers.react_native import (
 from warpers.stubs import handleChange, validate
 
 
-def text(style=None, string_text="Text"):
+def text(style: dict = {}, string_text: str = "Text"):
     return __pragma__(
         "js",
         "{}",
@@ -24,7 +24,7 @@ def text(style=None, string_text="Text"):
     )
 
 
-def for_each(list, other_component):
+def for_each(list: list, other_component: function):
     return __pragma__(
         "js",
         "{}",
@@ -40,14 +40,14 @@ def for_each(list, other_component):
     )
 
 
-def cond(condition, first_component, second_component):
+def cond(condition: bool, first_component: function, second_component: function):
     if condition:
         return first_component
     else:
         return second_component
 
 
-def scroll_view(components):
+def scroll_view(components: list):
     return __pragma__(
         "js",
         "{}",
@@ -59,7 +59,7 @@ def scroll_view(components):
     )
 
 
-def image(style, source):
+def image(style: dict, source: str):
     return __pragma__(
         "js",
         "{}",
@@ -72,7 +72,7 @@ def image(style, source):
     )
 
 
-def view(style, components):
+def view(style: dict, components: list):
     return __pragma__(
         "js",
         "{}",
@@ -85,12 +85,12 @@ def view(style, components):
 
 
 def text_input(
-    style,
-    form_dict,
-    placeholder,
-    secureTextEntry,
-    placeholderTextColor,
-    keyboardType=None,
+    style: dict,
+    form_dict: dict,
+    placeholder: str,
+    secureTextEntry: bool,
+    placeholderTextColor: str,
+    keyboardType: str = "default",
 ):
 
     return __pragma__(
@@ -111,7 +111,7 @@ def text_input(
     )
 
 
-def touchable_opacity(style, on_press, components):
+def touchable_opacity(style: dict, on_press, components: list):
     return __pragma__(
         "js",
         "{}",
