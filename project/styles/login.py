@@ -78,4 +78,10 @@ styles = {
         "marginBottom": 20,
         "color": "black",
     },
+    "text": {
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#2caca4",
+        "marginTop": 30,
+    },
 }
