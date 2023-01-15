@@ -1,5 +1,5 @@
-from js_libs.stubs import require, __pragma__  # __:skip
-from js_libs.react_native import (
+from warpers.stubs import require, __pragma__  # __:skip
+from warpers.react_native import (
     Text,
     react_native,
     View,
@@ -9,7 +9,7 @@ from js_libs.react_native import (
     TouchableOpacity,
     ScrollView,
 )
-from js_libs.stubs import handleChange, validate
+from warpers.stubs import handleChange, validate
 
 
 def text(style=None, string_text="Text"):

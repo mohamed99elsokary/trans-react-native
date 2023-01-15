@@ -1,4 +1,4 @@
-from js_libs.stubs import require, __pragma__  # __:skip
+from warpers.stubs import require, __pragma__  # __:skip
 
 axios = require("axios")
 

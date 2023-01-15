@@ -1,10 +1,10 @@
-from js_libs.stubs import require, __pragma__  # __:skip
-from js_libs.stubs import handleChange, validate
-from js_libs.react import React, useState
-from js_libs.requests import requests
+from warpers.stubs import require, __pragma__  # __:skip
+from warpers.stubs import handleChange, validate
+from warpers.react import React, useState
+from warpers.requests import requests
 from project.base_data import BASE_URL
 from project.styles.login import styles
-from js_libs.jsx import text, scroll_view, image, view, text_input, touchable_opacity
+from warpers.jsx import text, scroll_view, image, view, text_input, touchable_opacity
 
 Formik = require("formik")
 

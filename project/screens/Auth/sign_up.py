@@ -1,8 +1,8 @@
-from js_libs.stubs import require, __pragma__  # __:skip
-from js_libs.stubs import handleChange, validate
-from js_libs.react import React, useState
+from warpers.stubs import require, __pragma__  # __:skip
+from warpers.stubs import handleChange, validate
+from warpers.react import React, useState
 
-from js_libs.react_native import (
+from warpers.react_native import (
     react_native,
     View,
     TextInput,

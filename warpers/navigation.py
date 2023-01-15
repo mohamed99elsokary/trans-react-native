@@ -1,4 +1,4 @@
-from js_libs.stubs import __pragma__  # __:skip
+from warpers.stubs import __pragma__  # __:skip
 
 __pragma__(
     "js",

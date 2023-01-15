@@ -1,9 +1,9 @@
-from js_libs.stubs import __pragma__, module  # __:skip
-from js_libs.navigation import Stack, NavigationContainer
+from warpers.stubs import __pragma__, module  # __:skip
+from warpers.navigation import Stack, NavigationContainer
 from project.screens.Auth.login import Login
 from project.screens.Auth.sign_up import Register
-from js_libs.react import React
-from js_libs.react_native import react_native, View
+from warpers.react import React
+from warpers.react_native import react_native, View
 
 
 def App():

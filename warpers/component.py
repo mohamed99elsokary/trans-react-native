@@ -1,5 +1,5 @@
 from typing import Dict, Any, Callable
-from js_libs.stubs import require  # __:skip
+from warpers.stubs import require  # __:skip
 
 React = require("react")
 
